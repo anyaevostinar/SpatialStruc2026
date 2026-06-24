@@ -1,1 +1,2 @@
 This folder contains the configuration and scripts for analyzing the data. 
+Remember not to push the actual data since it's too big. You can download it from the server by right clicking and selecting download.
