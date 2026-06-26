@@ -32,7 +32,7 @@ cp /Accounts/YOUR_USERNAME/YOUR_GIT_REPO/SymbulationEmp/symbulation_sgp .
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
 args=" -START_MOI 1 -GRID 0 -TASK_ENV_CFG_PATH diff-reward-env.json -STRESS_TYPE mutualist \
    -VERTICAL_TRANSMISSION 1 -HOST_MIN_CYCLES_BEFORE_REPRO 0 -SYM_MIN_CYCLES_BEFORE_REPRO 0 \
-   -PARASITE_NUM_OFFSPRING_ON_STRESS_INTERACTION 0 -FILE_NAME _YOUR_TREAMENT"
+   -PARASITE_NUM_OFFSPRING_ON_STRESS_INTERACTION 0 -FILE_NAME _YOUR_TREAMENT -BASE_DEATH_CHANCE 0.75"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-mutualists-mixed.sh
