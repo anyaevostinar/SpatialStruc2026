@@ -26,7 +26,8 @@ cd test_treatment
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_mut_mixed .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_mut_mixed/SymSettings.cfg .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_mut_mixed/diff-reward-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
