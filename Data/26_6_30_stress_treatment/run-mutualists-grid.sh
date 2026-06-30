@@ -36,4 +36,4 @@ args=" -START_MOI 1 -GRID 1 -TASK_ENV_CFG_PATH diff-reward-env.json -STRESS_TYPE
    -PARASITE_NUM_OFFSPRING_ON_STRESS_INTERACTION 0 -FILE_NAME mutualists-grid -BASE_DEATH_CHANCE 0.75"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
-## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-mutualists-mixed.sh
+## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-mutualists-grid.sh
