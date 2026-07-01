@@ -18,9 +18,10 @@
 #SBATCH --array=100-129
 
 #SBATCH --nodes=1
+#SBATCH --ntasks-per-node=29
 
 cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_stress_treatment
-mkdir nosyms-grid-diff
+mkdir -p nosyms-grid-diff
 cd nosyms-grid-diff
 
 mkdir ${SLURM_ARRAY_TASK_ID}
@@ -31,7 +32,8 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_stress_treatment/di
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args=" -START_MOI 0 -GRID 1 -FILE_NAME nosyms-grid-diff"
+args=" -START_MOI 0 -GRID 1 -HOST_MIN_CYCLES_BEFORE_REPRO 0 -HOST_REPRO_RES 100 \
+-TASK_ENV_CFG_PATH diff-reward-env.json -FILE_NAME nosyms-grid-diff"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-grid-diff.sh

@@ -18,9 +18,10 @@
 #SBATCH --array=100-129
 
 #SBATCH --nodes=1
+#SBATCH --ntasks-per-node=29
 
 cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_6_30_stress_treatment
-mkdir parasites-grid
+mkdir -p parasites-grid
 cd parasites-grid
 
 mkdir ${SLURM_ARRAY_TASK_ID}

@@ -1,1 +1,1 @@
-A sample of what the "slurm" scripts "run-nosyms.sh" and "run-parasites.sh" and SymSettings.cfg look like. 
+A set of expierements to observe grid effect with a stress treatment

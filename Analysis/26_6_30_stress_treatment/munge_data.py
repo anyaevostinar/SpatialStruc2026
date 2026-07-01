@@ -1,9 +1,9 @@
 import os.path
 import gzip
 
-folder = '../../Data/sample_stress_treatment/'
+folder = '../../Data/26_6_30_stress_treatment/'
 
-treatment_folders = ["ParasitesGrid", "NoSymsGrid", "ParasitesMixed", "NoSymsMixed"]
+treatment_folders = ["parasites-mixed", "parasites-grid", "nosyms-grid-diff", "nosyms-grid-flat", "mutualists-mixed", "mutualists-grid"]
 reps = range(100,130)
 header = "uid treatment rep update task task_count partner\n"
 task_names = {1:"NAND", 2:"NOT", 3:"OR_NOT", 4:"AND", 5:"OR", 6:"AND_NOT", 
