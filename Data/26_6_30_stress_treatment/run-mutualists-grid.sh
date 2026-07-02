@@ -35,7 +35,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 args=" -START_MOI 1 -GRID 1 -TASK_ENV_CFG_PATH diff-reward-env.json -STRESS_TYPE mutualist \
    -VERTICAL_TRANSMISSION 1 -HOST_MIN_CYCLES_BEFORE_REPRO 0 -SYM_MIN_CYCLES_BEFORE_REPRO 0 \
    -PARASITE_NUM_OFFSPRING_ON_STRESS_INTERACTION 0 -HOST_REPRO_RES 100 -SYM_HORIZ_TRANS_RES 50 \
-   -FILE_NAME mutualists-grid -BASE_DEATH_CHANCE 0.75"
+   -BASE_DEATH_CHANCE 0.75"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-mutualists-grid.sh

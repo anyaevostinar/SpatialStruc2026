@@ -3,7 +3,8 @@ import gzip
 
 folder = '../../Data/26_6_30_stress_treatment/'
 
-treatment_folders = ["parasites-mixed", "parasites-grid", "nosyms-grid-diff", "nosyms-grid-flat", "mutualists-mixed", "mutualists-grid"]
+treatment_folders = ["parasites-mixed", "parasites-grid", "nosyms-grid-flat"]
+
 reps = range(100,130)
 header = "uid treatment rep update task task_count partner\n"
 task_names = {1:"NAND", 2:"NOT", 3:"OR_NOT", 4:"AND", 5:"OR", 6:"AND_NOT", 
@@ -16,7 +17,7 @@ outFile.write(header)
 
 for t in treatment_folders:
     for r in reps:
-        fname = folder + "/"+t+"/" + str(r) + "/Tasks_data.csv"
+        fname = folder + "/"+t+"/" + str(r) + "/MOI1_Data" + "/Tasks"+t+".csv" #should be Tasks_data.csv
         uid = t + "_" + str(r)
         curFile = open(fname, 'r')
         for line in curFile:

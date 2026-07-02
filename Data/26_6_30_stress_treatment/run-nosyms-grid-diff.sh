@@ -33,7 +33,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
 args=" -START_MOI 0 -GRID 1 -HOST_MIN_CYCLES_BEFORE_REPRO 0 -HOST_REPRO_RES 100 \
--TASK_ENV_CFG_PATH diff-reward-env.json -FILE_NAME nosyms-grid-diff"
+-TASK_ENV_CFG_PATH diff-reward-env.json"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-grid-diff.sh
