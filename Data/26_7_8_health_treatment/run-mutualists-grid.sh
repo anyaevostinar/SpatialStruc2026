@@ -31,7 +31,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_8_health_treatment/dif
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args=" -START_MOI 1 -GRID 1 -TASK_ENV_CFG_PATH diff-reward-env.json -STRESS_TYPE mutualist \
+args=" -START_MOI 1 -GRID 1 -TASK_ENV_CFG_PATH diff-reward-env.json -HEALTH_TYPE mutualist \
    -VERTICAL_TRANSMISSION 1 -HOST_REPRO_RES 256 -SYM_HORIZ_TRANS_RES 128"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
