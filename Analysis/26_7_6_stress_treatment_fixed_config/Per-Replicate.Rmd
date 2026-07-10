@@ -61,7 +61,7 @@ task_hist_plotter <- function(o="Host", t="parasites", max_y=NA){
 ```
 
 ```{r}
-host_plot1 <- task_hist_plotter("Host", "parasites-grid", max_y=750000)
+host_plot1 <- task_hist_plotter("Host", "parasites-grid")
 plot1 <- plot_grid(host_plot1)
 
 sym_plot1 <- task_hist_plotter("Sym", "parasites-grid")
