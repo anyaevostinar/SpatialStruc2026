@@ -42,7 +42,7 @@ tasks_df$task <- factor(tasks_df$task, levels = c("NOT", "NAND", "OR_NOT", "AND"
 ## per update
 
 ```{r}
-task_hist_plotter <- function(o="Host", t="parasites"){
+task_hist_plotter <- function(o="Host", t="parasites", max_y=NA){
   
   plot <- tasks_df %>% filter(partner == o) %>% filter(treatment == t) %>% 
     group_by(rep) %>%
@@ -51,15 +51,17 @@ task_hist_plotter <- function(o="Host", t="parasites"){
     ylab("Count of task completions") + xlab("Updates") +
     facet_wrap(~rep) + 
     facet_nested_theme + 
-    scale_fill_manual(name="Task",values=turbo(10)) + 
+    scale_fill_manual(name="Task", values=turbo(10)) + 
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    ggtitle(paste(o,t))
+    ggtitle(paste(o,t)) +
+    coord_cartesian(ylim = c(NA, max_y))
+
   return(plot)
 }
 ```
 
 ```{r}
-host_plot1 <- task_hist_plotter("Host", "parasites-grid")
+host_plot1 <- task_hist_plotter("Host", "parasites-grid", max_y=750000)
 plot1 <- plot_grid(host_plot1)
 
 sym_plot1 <- task_hist_plotter("Sym", "parasites-grid")
@@ -71,12 +73,12 @@ plot3 <- plot_grid(host_plot2)
 sym_plot2 <- task_hist_plotter("Sym", "parasites-mixed")
 plot4 <- plot_grid(sym_plot2)
 
-host_plot3 <- task_hist_plotter("Host", "nosyms-grid-flat")
-plot5 <- plot_grid(host_plot3)
+#host_plot3 <- task_hist_plotter("Host", "nosyms-grid-flat")
+#plot5 <- plot_grid(host_plot3)
 
-sym_plot3 <- task_hist_plotter("Sym", "nosyms-grid-flat")
-plot6 <- plot_grid(sym_plot3)
+#sym_plot3 <- task_hist_plotter("Sym", "nosyms-grid-flat")
+#plot6 <- plot_grid(sym_plot3)
 
-plot_grid( byrow = FALSE, ncol = 3, nrow = 2,
-  plotlist = list(plot1, plot2, plot3, plot4, plot5, plot6))
+plot_grid( byrow = FALSE, ncol = 2, nrow = 2,
+  plotlist = list(plot1, plot2, plot3, plot4))
 ```
