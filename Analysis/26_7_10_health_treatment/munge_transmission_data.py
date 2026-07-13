@@ -8,7 +8,7 @@ treatment_folders = ["parasites-mixed", "parasites-grid", "nosyms-grid-flat", "m
 reps = range(100,130)
 header = "uid treatment rep update horiz_attempts horiz_successes vert_attempts vert_successes\n"
 
-outputFileName = "munged_TransmissionRates.dat"
+outputFileName = "munged_transmission_rates.dat"
 
 outFile = open(outputFileName, 'w')
 outFile.write(header)
@@ -25,7 +25,7 @@ for t in treatment_folders:
                 horiz_successes = sum(int(splitline[i]) for i in range(11, 21))
                 vert_attempts = sum(int(splitline[i]) for i in range(21, 31))
                 vert_successes = sum(int(splitline[i]) for i in range(31, 41))
-                outRow = f'{uid} {t} {r} {splitline[0]} {horiz_attempts} {horiz_successes} {vert_attempts} {vert_successes}'
+                outRow = f'{uid} {t} {r} {splitline[0]} {horiz_attempts} {horiz_successes} {vert_attempts} {vert_successes}\n'
                 outFile.write(outRow)
         curFile.close()
 outFile.close()
