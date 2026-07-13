@@ -21,11 +21,11 @@ for t in treatment_folders:
         for line in curFile:
             if (line[0] != 'u'):
                 splitline = line.strip().split(',')
-                horiz_attempts = sum(splitline[i] for i in range(1, 11))
-                horiz_successes = sum(splitline[i] for i in range(11, 21))
-                vert_attempts = sum(splitline[i] for i in range(21, 31))
-                vert_successes = sum(splitline[i] for i in range(31, 41))
-                outRow = f'{uid} {t} {r} {horiz_attempts} {horiz_successes} {vert_attempts} {vert_successes}'
+                horiz_attempts = sum(int(splitline[i]) for i in range(1, 11))
+                horiz_successes = sum(int(splitline[i]) for i in range(11, 21))
+                vert_attempts = sum(int(splitline[i]) for i in range(21, 31))
+                vert_successes = sum(int(splitline[i]) for i in range(31, 41))
+                outRow = f'{uid} {t} {r} {splitline[0]} {horiz_attempts} {horiz_successes} {vert_attempts} {vert_successes}'
                 outFile.write(outRow)
         curFile.close()
 outFile.close()
