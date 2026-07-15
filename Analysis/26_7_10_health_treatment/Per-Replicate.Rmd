@@ -34,7 +34,7 @@ facet_nested_theme <- theme(
 ```{r}
 
 tasks_df <- read.table("munged_basic_tasks.dat", h=T)
-#tasks_df <- subset(tasks_df, update <= 400000)
+tasks_df <- subset(tasks_df, update <= 100000)
 tasks_df$task <- factor(tasks_df$task, levels = c("NOT", "NAND", "OR_NOT", "AND", "OR", "AND_NOT", "NOR", "XOR", "EQU"))
 ```
 
@@ -63,14 +63,14 @@ task_hist_plotter <- function(o="Host", t="parasites"){
 host_plot1 <- task_hist_plotter("Host", "mutualists-grid")
 plot1 <- plot_grid(host_plot1)
 
-sym_plot1 <- task_hist_plotter("Sym", "mutualists-grid")
-plot2 <- plot_grid(sym_plot1)
+#sym_plot1 <- task_hist_plotter("Sym", "mutualists-grid")
+#plot2 <- plot_grid(sym_plot1)
 
 host_plot2 <- task_hist_plotter("Host", "mutualists-mixed")
 plot3 <- plot_grid(host_plot2)
 
-sym_plot2 <- task_hist_plotter("Sym", "mutualists-mixed")
-plot4 <- plot_grid(sym_plot2)
+#sym_plot2 <- task_hist_plotter("Sym", "parasites-mixed")
+#plot4 <- plot_grid(sym_plot2)
 
 #host_plot3 <- task_hist_plotter("Host", "nosyms-grid-diff")
 #plot1 <- plot_grid(host_plot3)
@@ -78,6 +78,6 @@ plot4 <- plot_grid(sym_plot2)
 #sym_plot3 <- task_hist_plotter("Sym", "nosyms-grid-diff")
 #plot2 <- plot_grid(sym_plot3)
 
-plot_grid( byrow = FALSE, ncol = 2, nrow = 2,
-  plotlist = list(plot1, plot2, plot3, plot4))
+plot_grid( byrow = FALSE, ncol = 2, nrow = 1,
+  plotlist = list(plot1, plot3))
 ```
