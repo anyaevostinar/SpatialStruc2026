@@ -1,1 +1,0 @@
-A sample of what the "slurm" scripts "run-nosyms.sh" and "run-parasites.sh" and SymSettings.cfg look like. 
