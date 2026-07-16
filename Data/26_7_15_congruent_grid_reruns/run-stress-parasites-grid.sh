@@ -19,15 +19,15 @@
 
 #SBATCH --nodes=1
 
-cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns_fixed_config
+cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns
 mkdir -p stress-parasites-grid
 cd stress-parasites-grid
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns_fixed_config/SymSettings.cfg .
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns_fixed_config/flat-reward-2-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns/SymSettings.cfg .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns/flat-reward-2-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
