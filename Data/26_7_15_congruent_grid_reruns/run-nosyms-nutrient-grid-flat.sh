@@ -20,8 +20,8 @@
 #SBATCH --nodes=1
 
 cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns
-mkdir -p nosyms-mixed-flat
-cd nosyms-mixed-flat
+mkdir -p nosyms-nutrient-grid-flat
+cd nosyms-nutrient-grid-flat
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
@@ -37,4 +37,4 @@ args=" -START_MOI 0 -GRID 1 -TASK_ENV_CFG_PATH flat-reward-2-env.json \
   -VERTICAL_TRANSMISSION 0"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
-## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-mixed-grid-flat.sh
+## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-nutrient-grid-flat.sh

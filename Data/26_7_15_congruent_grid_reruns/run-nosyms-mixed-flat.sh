@@ -37,4 +37,4 @@ args=" -START_MOI 0 -GRID 0 -TASK_ENV_CFG_PATH flat-reward-2-env.json \
   -VERTICAL_TRANSMISSION 0"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
-## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-mixed-grid-flat.sh
+## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-mixed-flat.sh
