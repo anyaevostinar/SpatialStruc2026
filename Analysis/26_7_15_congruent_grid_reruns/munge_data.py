@@ -7,13 +7,13 @@ stress_treatment_folders = ["stress-parasites-mixed", "stress-parasites-grid", "
 health_treatment_folders = ["health-parasites-mixed", "health-parasites-grid", "health-mutualists-mixed", "health-mutualists-grid"]
 nutrient_treatment_folders = ["nutrient-parasites-mixed", "nutrient-parasites-grid", "nutrient-mutualists-mixed", "nutrient-mutualists-grid"]
 nutrient_nosyms_treatment_folders = ["nosyms-nutrient-grid-flat","nosyms-nutrient-mixed-flat"]
-stress_nosyms_treatment_folders = ["nosyms-stress-grid-diff","nosyms-stress-grid-flat","nosyms-stress-mixed-diff","nosyms-stress-mixed-flat"]
+#stress_nosyms_treatment_folders = ["nosyms-stress-grid-diff","nosyms-stress-grid-flat","nosyms-stress-mixed-diff","nosyms-stress-mixed-flat"]
 nosyms_treatment_folders = ["nosyms-grid-diff","nosyms-grid-flat","nosyms-mixed-diff","nosyms-mixed-flat"]
 
 groups = [('stress_tasks.dat', stress_treatment_folders),
   ('health_tasks.dat', health_treatment_folders),
   ('nutrient_tasks.dat', nutrient_treatment_folders),
-  ('stress_nosyms_tasks.dat', stress_nosyms_treatment_folders),
+#  ('stress_nosyms_tasks.dat', stress_nosyms_treatment_folders),
   ('nutrient_nosyms_tasks.dat', nutrient_nosyms_treatment_folders),
   ('nosyms_tasks.dat', nosyms_treatment_folders)]
 
