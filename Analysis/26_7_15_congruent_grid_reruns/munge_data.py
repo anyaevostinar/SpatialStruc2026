@@ -31,7 +31,7 @@ for group in groups:
   treatment_folders = group[1]
   for t in treatment_folders:
       for r in reps:
-          fname = folder + "/"+t+"/" + str(r) + "/Results" + "/Tasks_data.csv"
+          fname = folder + "/"+t+"/" + str(r) + "/Data" + "/Tasks_data.csv"
           uid = t + "_" + str(r)
           curFile = open(fname, 'r')
           for line in curFile:
