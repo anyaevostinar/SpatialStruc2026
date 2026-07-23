@@ -33,8 +33,8 @@ facet_nested_theme <- theme(
 ## read data
 ```{r}
 
-tasks_df <- read.table("munged_basic_tasks.dat", h=T)
-tasks_df <- subset(tasks_df, update <= 100000)
+tasks_df <- read.table("stress_tasks.dat", h=T)
+tasks_df <- subset(tasks_df, update <= 300000)
 tasks_df$task <- factor(tasks_df$task, levels = c("NOT", "NAND", "OR_NOT", "AND", "OR", "AND_NOT", "NOR", "XOR", "EQU"))
 ```
 
@@ -54,30 +54,29 @@ task_hist_plotter <- function(o="Host", t="parasites"){
     facet_nested_theme + 
     scale_fill_manual(name="Task",values=turbo(10)) + 
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-    ggtitle(paste(o,t))
+    ggtitle(o)
   return(plot)
 }
 ```
 
 ```{r}
-host_plot1 <- task_hist_plotter("Host", "mutualists-grid")
+title <- ggdraw() + 
+  draw_label(
+    "Stress Mutualists Mixed",
+    fontface = 'bold',
+    x = 0.5,
+    hjust = 0.5
+  )
+
+host_plot1 <- task_hist_plotter("Host", "stress-mutualists-mixed")
 plot1 <- plot_grid(host_plot1)
 
-#sym_plot1 <- task_hist_plotter("Sym", "mutualists-grid")
-#plot2 <- plot_grid(sym_plot1)
+sym_plot1 <- task_hist_plotter("Sym", "stress-mutualists-mixed")
+plot2 <- plot_grid(sym_plot1)
 
-host_plot2 <- task_hist_plotter("Host", "mutualists-mixed")
-plot3 <- plot_grid(host_plot2)
+plot_row <- plot_grid( byrow = FALSE, ncol = 2, nrow = 1,
+  plotlist = list(plot1, plot2))
 
-#sym_plot2 <- task_hist_plotter("Sym", "parasites-mixed")
-#plot4 <- plot_grid(sym_plot2)
-
-#host_plot3 <- task_hist_plotter("Host", "nosyms-grid-diff")
-#plot1 <- plot_grid(host_plot3)
-
-#sym_plot3 <- task_hist_plotter("Sym", "nosyms-grid-diff")
-#plot2 <- plot_grid(sym_plot3)
-
-plot_grid( byrow = FALSE, ncol = 2, nrow = 1,
-  plotlist = list(plot1, plot3))
+final_plot <- plot_grid(title, plot_row, ncol = 1, rel_heights = c(0.1, 1))
+print(final_plot)
 ```

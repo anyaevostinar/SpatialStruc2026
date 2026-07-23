@@ -8,8 +8,8 @@
 #SBATCH --mail-user=does_not_work@carleton.edu
 
 ## Job name settings (These do matter, so UPDATE THEM)
-#SBATCH --job-name=nsmd
-#SBATCH -o nsmd%A_%a.out
+#SBATCH --job-name=nssmd
+#SBATCH -o nssmd%A_%a.out
 
 ## Memory requirement in megabytes. You might need to make this bigger.
 #SBATCH --mem-per-cpu=2000M
@@ -31,7 +31,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reru
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args=" -START_MOI 0 -GRID 0 -ENABLE_STRESS 1"
+args=" -START_MOI 0 -ENABLE_STRESS 1"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-stress-mixed-diff.sh

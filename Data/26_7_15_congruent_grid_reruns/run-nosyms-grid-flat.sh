@@ -31,7 +31,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reru
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args=" -START_MOI 0 -GRID 1 -TASK_ENV_CFG_PATH flat-reward-2-env.json \
+args=" -START_MOI 0 -SPATIAL_STRUCT_MODE grid -TASK_ENV_CFG_PATH flat-reward-2-env.json \
   -HOST_REPRO_RES 2 -SYM_HORIZ_TRANS_RES 2 \
   -HOST_MIN_CYCLES_BEFORE_REPRO 100 -SYM_MIN_CYCLES_BEFORE_REPRO 10 \
   -VERTICAL_TRANSMISSION 0"

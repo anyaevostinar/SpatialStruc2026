@@ -8,8 +8,8 @@
 #SBATCH --mail-user=does_not_work@carleton.edu
 
 ## Job name settings (These do matter, so UPDATE THEM)
-#SBATCH --job-name=nsngf
-#SBATCH -o nsmf%A_%a.out
+#SBATCH --job-name=np5
+#SBATCH -o np5%A_%a.out
 
 ## Memory requirement in megabytes. You might need to make this bigger.
 #SBATCH --mem-per-cpu=2000M
@@ -19,22 +19,22 @@
 
 #SBATCH --nodes=1
 
-cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns
-mkdir -p nosyms-nutrient-grid-flat
-cd nosyms-nutrient-grid-flat
+cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_23_health_nut-par_multisym
+mkdir -p nutrient-parasites-ms5
+cd nutrient-parasites-ms5
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns/SymSettings.cfg .
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_15_congruent_grid_reruns/flat-reward-2-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_23_health_nut-par_multisym/SymSettings.cfg .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_23_health_nut-par_multisym/flat-reward-2-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args=" -START_MOI 0 -SPATIAL_STRUCT_MODE grid -TASK_ENV_CFG_PATH flat-reward-2-env.json \
-  -HOST_REPRO_RES 7 -SYM_HORIZ_TRANS_RES 7 \
+args=" -START_MOI 1 -SYM_LIMIT 5 -ENABLE_NUTRIENT 1 -NUTRIENT_TYPE parasite -TASK_ENV_CFG_PATH flat-reward-2-env.json \
+  -HOST_REPRO_RES 3.5 -SYM_HORIZ_TRANS_RES 1 \
   -HOST_MIN_CYCLES_BEFORE_REPRO 100 -SYM_MIN_CYCLES_BEFORE_REPRO 10 \
   -VERTICAL_TRANSMISSION 0"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
-## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nosyms-nutrient-grid-flat.sh
+## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-nutrient-parasites-ms5.sh
