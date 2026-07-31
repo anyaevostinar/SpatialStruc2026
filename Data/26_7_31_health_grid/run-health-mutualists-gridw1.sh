@@ -8,8 +8,8 @@
 #SBATCH --mail-user=does_not_work@carleton.edu
 
 ## Job name settings (These do matter, so UPDATE THEM)
-#SBATCH --job-name=sp
-#SBATCH -o sp%A_%a.out
+#SBATCH --job-name=hmgw1
+#SBATCH -o hmgw1%A_%a.out
 
 ## Memory requirement in megabytes. You might need to make this bigger.
 #SBATCH --mem-per-cpu=2000M
@@ -19,19 +19,19 @@
 
 #SBATCH --nodes=1
 
-cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_30_health_stress_just_after_DONATION_STEAL_INST_schenanigans
-mkdir -p stress-parasites
-cd stress-parasites
+cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid
+mkdir -p health-mutualists-gridw1
+cd health-mutualists-gridw1
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_30_health_stress_just_after_DONATION_STEAL_INST_schenanigans/par_SymSettings.cfg ./SymSettings.cfg
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_30_health_stress_just_after_DONATION_STEAL_INST_schenanigans/flat-reward-2-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/mut_SymSettings.cfg ./SymSettings.cfg
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/diff-reward-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args="-ENABLE_STRESS 1"
+args="-ENABLE_HEALTH 1 -WORLD_WIDTH 1 -WORLD_HEIGHT 10000"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
-## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-health-parasites-ms5.sh
+## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-health-mutualists-ms2.sh
