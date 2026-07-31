@@ -20,15 +20,15 @@
 #SBATCH --nodes=1
 
 
-cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid
+cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid
 mkdir -p health-parasites-gridw1
 cd health-parasites-gridw1
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/par_SymSettings.cfg ./SymSettings.cfg
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/flat-reward-2-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid/par_SymSettings.cfg ./SymSettings.cfg
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid/flat-reward-2-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS

@@ -19,15 +19,15 @@
 
 #SBATCH --nodes=1
 
-cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid
+cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid
 mkdir -p health-nosym-diff-gridw1
 cd health-nosym-diff-gridw1
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/mut_SymSettings.cfg ./SymSettings.cfg
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_stress_grid/diff-reward-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid/mut_SymSettings.cfg ./SymSettings.cfg
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_7_31_health_grid/diff-reward-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
