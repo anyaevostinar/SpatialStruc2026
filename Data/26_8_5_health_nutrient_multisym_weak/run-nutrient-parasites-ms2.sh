@@ -31,7 +31,7 @@ cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_5_health_nutrient_mult
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args="-ENABLE_NUTRIENT 1 -SYM_LIMIT 2"
+args="-ENABLE_NUTRIENT 1 -SYM_LIMIT 2 -HOST_REPRO_RES 3.5 -SYM_HORIZ_TRANS_RES 1"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-health-mutualists-ms2.sh
