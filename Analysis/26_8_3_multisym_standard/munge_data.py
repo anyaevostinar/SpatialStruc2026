@@ -7,8 +7,8 @@ treatment_folders = ["health-mutualists-ms2",
 "health-mutualists-ms5",
 "health-parasites-ms2",
 "health-parasites-ms5",
-"nutrient-mutualists-ms2",
-"nutrient-mutualists-ms5"]
+"nutrient-parasites-ms2",
+"nutrient-parasites-ms5"]
 
 reps = range(100,130)
 header = "uid treatment rep update task task_count partner\n"

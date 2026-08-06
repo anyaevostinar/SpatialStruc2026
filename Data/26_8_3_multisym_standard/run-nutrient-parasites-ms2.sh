@@ -8,8 +8,8 @@
 #SBATCH --mail-user=does_not_work@carleton.edu
 
 ## Job name settings (These do matter, so UPDATE THEM)
-#SBATCH --job-name=nmms5
-#SBATCH -o nmms5%A_%a.out
+#SBATCH --job-name=npms2
+#SBATCH -o npms2%A_%a.out
 
 ## Memory requirement in megabytes. You might need to make this bigger.
 #SBATCH --mem-per-cpu=2000M
@@ -20,18 +20,18 @@
 #SBATCH --nodes=1
 
 cd /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_3_multisym_standard
-mkdir -p nutrient-mutualists-ms5
-cd nutrient-mutualists-ms5
+mkdir -p nutrient-parasites-ms2
+cd nutrient-parasites-ms2
 
 mkdir ${SLURM_ARRAY_TASK_ID}
 cd ${SLURM_ARRAY_TASK_ID}
 
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_3_multisym_standard/mut_SymSettings.cfg ./SymSettings.cfg
-cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_3_multisym_standard/diff-reward-env.json .
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_3_multisym_standard/par_SymSettings.cfg ./SymSettings.cfg
+cp /Accounts/roseg/symbulation/SpatialStruc2026/Data/26_8_3_multisym_standard/flat-reward-2-env.json .
 cp /Accounts/roseg/symbulation/SpatialStruc2026/SymbulationEmp/symbulation_sgp .
 
 ## THIS IS AN EXAMPLE, UPDATE TO CORRECT THINGS
-args="-ENABLE_NUTRIENT 1 -SYM_LIMIT 5"
+args="-ENABLE_NUTRIENT 1 -SYM_LIMIT 2 -HOST_REPRO_RES 3.5 -SYM_HORIZ_TRANS_RES 1"
 ./symbulation_sgp $args -SEED ${SLURM_ARRAY_TASK_ID} > run.log
 
 ## Run with sbatch -p facultynode --nodelist=edmonstone2024,margulis2024,carver,lederberg run-health-mutualists-ms2.sh
