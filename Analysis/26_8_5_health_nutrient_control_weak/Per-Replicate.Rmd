@@ -34,7 +34,7 @@ facet_nested_theme <- theme(
 ```{r}
 
 tasks_df <- read.table("munged_tasks.dat", h=T)
-tasks_df <- subset(tasks_df, update <= 100000)
+tasks_df <- subset(tasks_df, update <= 500000)
 tasks_df$task <- factor(tasks_df$task, levels = c("NOT", "NAND", "OR_NOT", "AND", "OR", "AND_NOT", "NOR", "XOR", "EQU"))
 ```
 
