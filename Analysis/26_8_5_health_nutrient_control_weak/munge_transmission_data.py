@@ -1,7 +1,7 @@
 import os.path
 import gzip
 
-folder = '../../Data/26_8_5_health_nutrient_control/'
+folder = '../../Data/26_8_5_health_nutrient_control_weak/'
 
 treatment_folders = ["health-mutualists", "health-parasites", "nutrient-parasites", "nutrient-mutualists"]
 
