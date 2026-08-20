@@ -3,7 +3,7 @@ import gzip
 
 folder = '../../Data/26_8_10_health_grid_weak/'
 
-treatment_folders = ["health-mutualists-grid", "health-mutualists-gridw1", "health-parasites-grid", "health-parasites-gridw1", "health-nosyms-diff-grid" "health-nosyms-diff-gridw1", "health-nosyms-flat-grid" "health-nosyms-flat-gridw1"]
+treatment_folders = ["health-mutualists-grid", "health-mutualists-gridw1", "health-parasites-grid", "health-parasites-gridw1", "health-nosyms-diff-grid", "health-nosyms-diff-gridw1", "health-nosyms-flat-grid" "health-nosyms-flat-gridw1"]
 
 reps = range(100,130)
 header = "uid treatment rep update horiz_attempts horiz_successes vert_attempts vert_successes\n"
