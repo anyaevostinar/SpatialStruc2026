@@ -62,16 +62,16 @@ task_hist_plotter <- function(o="Host", t="parasites"){
 ```{r}
 title <- ggdraw() + 
   draw_label(
-    "health mutualists",
+    "health parasites",
     fontface = 'bold',
     x = 0.5,
     hjust = 0.5
   )
 
-host_plot1 <- task_hist_plotter("Host", "health-mutualists")
+host_plot1 <- task_hist_plotter("Host", "health-parasites")
 plot1 <- plot_grid(host_plot1)
 
-sym_plot1 <- task_hist_plotter("Sym", "health-mutualists")
+sym_plot1 <- task_hist_plotter("Sym", "health-parasites")
 plot2 <- plot_grid(sym_plot1)
 
 plot_row <- plot_grid( byrow = FALSE, ncol = 2, nrow = 1,
