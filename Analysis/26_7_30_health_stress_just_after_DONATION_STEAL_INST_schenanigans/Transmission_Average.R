@@ -8,7 +8,7 @@ library(tidyr)
 
 #Read in the data
 initial_data <- read.table("munged_transmission_rates.dat", h=T)
-treatment_data <- subset(initial_data, treatment == "parasites-grid")
+treatment_data <- subset(initial_data, treatment == "health-mutualists")
 treatment_data <- subset(treatment_data, update <= 100000)
 
 # reshape to long format so each metric becomes its own line
